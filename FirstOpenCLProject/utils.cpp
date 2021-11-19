@@ -4,6 +4,7 @@
 #include <iostream>
 
 std::string Utils::readFile(const std::string& path) {
+    std::cout << path << std::endl;
     std::ifstream file(path);
     std::string content, str;
     while (std::getline(file, str)) {
