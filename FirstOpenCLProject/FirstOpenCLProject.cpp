@@ -31,12 +31,13 @@ int main() {
     bool wantExit = false;
     while (!wantExit)
     {
+        // menu print
         {
             std::cout << std::endl << "Choice your path" << std::endl;
             std::cout << "1.whoAmI" << std::endl;
             std::cout << "2.calculateArray" << std::endl;
             std::cout << "else for exit" << std::endl;
-        }
+        } 
         int index = 0;
         std::cin >> index;
         switch (index)
