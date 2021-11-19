@@ -1,12 +1,7 @@
-﻿#ifndef KERNELS_DIR
-#define KERNELS_DIR
-#endif
-
+﻿
 #include <iostream>
 #include <vector>
-
 #include <CL/cl.h>
-
 #include "utils.hpp"
 
 int main() {
@@ -23,12 +18,13 @@ int main() {
 
     cl_device_id deviceId = 0;
     cl_uint deviceCount = 0;
-    clGetDeviceIDs(platform[1], CL_DEVICE_TYPE_GPU, 1, &deviceId, &deviceCount);
+    clGetDeviceIDs(platform[0], CL_DEVICE_TYPE_GPU, 1, &deviceId, &deviceCount);
     cl_context context = clCreateContext(nullptr, 1, &deviceId, nullptr, nullptr, nullptr);
     cl_command_queue queue = clCreateCommandQueue(context, deviceId, 0, nullptr);
 
     {
-        std::string source = Utils::readFile(KERNELS_DIR "whoAmI.cl");
+        const std::string path = "./kernel/whoAmI.cl";
+        std::string source = Utils::readFile(path);
         const char* strings[] = { source.c_str() };
         cl_program program = clCreateProgramWithSource(context, 1, strings, nullptr, nullptr);
         clBuildProgram(program, 1, &deviceId, nullptr, nullptr, nullptr);
@@ -46,7 +42,7 @@ int main() {
         std::vector<cl_uint> arr(elemCount, cl_uint(100));
         cl_mem memory = nullptr;
 
-        std::string source = Utils::readFile(KERNELS_DIR "calculateArray.cl");
+        std::string source = Utils::readFile("./kernel/calculateArray.cl");
         const char* strings[] = { source.c_str() };
         cl_program program = clCreateProgramWithSource(context, 1, strings, nullptr, nullptr);
         clBuildProgram(program, 1, &deviceId, nullptr, nullptr, nullptr);
