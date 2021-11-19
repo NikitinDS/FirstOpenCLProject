@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы ресурсов\kernel">
+      <UniqueIdentifier>{0d2a8523-2abf-4d68-bc20-2ae85a85a644}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FirstOpenCLProject.cpp">
@@ -26,5 +29,13 @@
     <ClInclude Include="utils.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kernel\calculateArray.cl">
+      <Filter>Файлы ресурсов\kernel</Filter>
+    </None>
+    <None Include="kernel\whoAmI.cl">
+      <Filter>Файлы ресурсов\kernel</Filter>
+    </None>
   </ItemGroup>
 </Project>
